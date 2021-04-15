@@ -24,7 +24,7 @@ const Header = () => {
       </Link>
       <button
         className="border rounded-md px-6 py-1 hover:opacity-40"
-        onClick={() => signOut()}
+        onClick={() => signOut({ callbackUrl: '/login' })}
         aria-label="Go back"
       >
         Log out

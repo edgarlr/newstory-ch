@@ -17,7 +17,7 @@ function LoginPage() {
           Login using your google account
         </p>
         <button
-          onClick={() => signIn()}
+          onClick={() => signIn('google', { callbackUrl: '/' })}
           className="w-full mt-10 py-3 text-gray-800 border rounded-sm transition-colors hover:bg-blue-500 hover:text-white"
         >
           {loading ? 'Loading...' : 'Login with Google'}
