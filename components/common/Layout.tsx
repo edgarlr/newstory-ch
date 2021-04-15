@@ -11,7 +11,7 @@ const Layout = ({ children, header = true }: Props) => {
     <>
       {header && <Header />}
 
-      <main className="min-h-screen px-4 pt-24 pb-20 flex flex-col mx-auto md:w-3/4">
+      <main className="min-h-screen px-4 pt-20 pb-20 flex flex-col mx-auto md:w-3/4">
         {children}
       </main>
     </>

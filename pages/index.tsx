@@ -11,7 +11,7 @@ export default function HomePage({
 
   return (
     <Layout>
-      <section className="flex items-center">
+      <section className="flex items-center mb-10">
         <div className="w-12 h-12 rounded-full bg-blue-500" />
         <div className="ml-4">
           <p className="font-bold text-gray-800">User Name</p>
@@ -20,9 +20,15 @@ export default function HomePage({
       </section>
 
       <section>
+        <h2 className="text-gray-800 text-xl font-bold mb-2">
+          Star Wars Characters
+        </h2>
         <ul>
           {characters.map((character: TCharacter) => (
-            <li key={character.url}>
+            <li
+              key={character.url}
+              className="border-b px-2 py-3 transition-colors hover:bg-gray-50"
+            >
               <Link href={`/characters/${getCharacterId(character.url)}`}>
                 <a>
                   <p>{character.name}</p>
