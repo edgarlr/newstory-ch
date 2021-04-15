@@ -12,5 +12,7 @@ export async function fetchAPI(path: string) {
 }
 
 export async function getCharacters() {
-  return await fetchAPI('/people')
+  const { results } = await fetchAPI('/people')
+  if (!results) return []
+  return results
 }
