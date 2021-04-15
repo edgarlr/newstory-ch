@@ -9,7 +9,7 @@ const addToFavsButton = ({ character }: { character: TCharacter }) => {
     return (
       <button
         onClick={() => removeFromFavs(character)}
-        className="bg-black text-sm text-white rounded-lg px-6 py-2 border border-gray-600 transition-colors hover:bg-white hover:text-gray-600"
+        className="bg-white text-sm text-gray-800 rounded-lg px-6 py-2 border border-gray-600 transition-opacity hover:opacity-40"
       >
         Remove from favorites
       </button>
