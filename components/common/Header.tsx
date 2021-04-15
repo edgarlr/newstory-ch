@@ -24,7 +24,9 @@ const Header = () => {
       </Link>
       <button
         className="border rounded-md px-6 py-1 hover:opacity-40"
-        onClick={() => signOut({ callbackUrl: '/login' })}
+        onClick={() =>
+          signOut({ callbackUrl: 'https://newstory-ch.vercel.app/login' })
+        }
         aria-label="Go back"
       >
         Log out
