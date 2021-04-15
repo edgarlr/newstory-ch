@@ -2,6 +2,7 @@ import AddToFavsButton from 'components/character/AddToFavsButton'
 import Layout from 'components/common/Layout'
 import { getCharacterById } from 'lib/api'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import ErrorPage from 'next/error'
 
 export async function getStaticPaths() {
   return { paths: [], fallback: 'blocking' }
@@ -22,6 +23,10 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 const CharacterPage = ({
   character,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  // Return an 404 page when character is not finded
+  if (!character) {
+    return <ErrorPage statusCode={400} />
+  }
   return (
     <Layout>
       <section>
