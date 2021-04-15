@@ -1,14 +1,11 @@
+import CharactersList from 'components/character/CharactersList'
 import Layout from 'components/common/Layout'
 import { getCharacters } from 'lib/api'
-import { getCharacterId } from 'lib/utils/get-character-id'
 import { InferGetStaticPropsType } from 'next'
-import Link from 'next/link'
 
 export default function HomePage({
   characters,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log(characters)
-
   return (
     <Layout>
       <section className="flex items-center mb-10">
@@ -23,20 +20,7 @@ export default function HomePage({
         <h2 className="text-gray-800 text-xl font-bold mb-2">
           Star Wars Characters
         </h2>
-        <ul>
-          {characters.map((character: TCharacter) => (
-            <li
-              key={character.url}
-              className="border-b px-2 py-3 transition-colors hover:bg-gray-50"
-            >
-              <Link href={`/characters/${getCharacterId(character.url)}`}>
-                <a>
-                  <p>{character.name}</p>
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <CharactersList characters={characters} />
       </section>
     </Layout>
   )
