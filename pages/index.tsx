@@ -2,10 +2,20 @@ import CharactersList from 'components/character/CharactersList'
 import Layout from 'components/common/Layout'
 import { getCharacters } from 'lib/api'
 import { InferGetStaticPropsType } from 'next'
+import { useSession } from 'next-auth/client'
+import { useRouter } from 'next/dist/client/router'
 
 export default function HomePage({
   characters,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const [session, loading] = useSession()
+
+  const router = useRouter()
+
+  if (!loading && !session) {
+    router.push('/login')
+  }
+
   return (
     <Layout>
       <section className="flex items-center mb-10">

@@ -1,6 +1,7 @@
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import React from 'react'
+import { signOut } from 'next-auth/client'
 
 const Header = () => {
   const router = useRouter()
@@ -23,7 +24,7 @@ const Header = () => {
       </Link>
       <button
         className="border rounded-md px-6 py-1 hover:opacity-40"
-        onClick={() => console.log('log out')}
+        onClick={() => signOut()}
         aria-label="Go back"
       >
         Log out

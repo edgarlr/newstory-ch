@@ -3,6 +3,8 @@ import Layout from 'components/common/Layout'
 import { getCharacterById } from 'lib/api'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import ErrorPage from 'next/error'
+import { useSession } from 'next-auth/client'
+import { useRouter } from 'next/dist/client/router'
 
 export async function getStaticPaths() {
   return { paths: [], fallback: 'blocking' }
@@ -27,6 +29,13 @@ const CharacterPage = ({
   if (!character) {
     return <ErrorPage statusCode={400} />
   }
+
+  const [session, loading] = useSession()
+  const router = useRouter()
+  if (!loading && !session) {
+    router.push('/login')
+  }
+
   return (
     <Layout>
       <section>
