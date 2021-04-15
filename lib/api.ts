@@ -7,7 +7,7 @@ export async function fetchAPI(path: string) {
     const data = await response.json()
     return data
   } catch (error) {
-    throw new Error('Error trying to fetch')
+    return null
   }
 }
 
@@ -15,4 +15,10 @@ export async function getCharacters() {
   const { results } = await fetchAPI('/people')
   if (!results) return []
   return results
+}
+
+export async function getCharacterById(id: string) {
+  const result = await fetchAPI(`/people/${id}`)
+  if (!result) return null
+  return result
 }

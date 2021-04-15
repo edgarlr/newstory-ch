@@ -20,16 +20,17 @@ export default function HomePage({
       </section>
 
       <section>
-        {characters.map((character: TCharacter) => (
-          <Link
-            href={`/characters/${getCharacterId(character.url)}`}
-            key={character.url}
-          >
-            <a>
-              <p>{character.name}</p>
-            </a>
-          </Link>
-        ))}
+        <ul>
+          {characters.map((character: TCharacter) => (
+            <li key={character.url}>
+              <Link href={`/characters/${getCharacterId(character.url)}`}>
+                <a>
+                  <p>{character.name}</p>
+                </a>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
     </Layout>
   )
