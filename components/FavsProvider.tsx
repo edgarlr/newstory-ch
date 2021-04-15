@@ -1,9 +1,15 @@
 import { FavsContext } from 'lib/hooks/use-favs'
 import { useLocalStorage } from 'lib/hooks/use-local-storage'
 import { useCallback } from 'react'
+import { useSession } from 'next-auth/client'
 
 const FavsProvider = ({ children }: { children: React.ReactNode }) => {
-  const [favs, setFavs] = useLocalStorage<TCharacter[]>('favs', [])
+  const [session] = useSession()
+
+  const [favs, setFavs] = useLocalStorage<TCharacter[]>(
+    `favs-${session?.user.email}`,
+    []
+  )
 
   const addToFavs = useCallback(
     (character: TCharacter) => {
