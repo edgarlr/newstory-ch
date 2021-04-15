@@ -1,3 +1,4 @@
+import AddToFavsButton from 'components/character/AddToFavsButton'
 import Layout from 'components/common/Layout'
 import { getCharacterById } from 'lib/api'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
@@ -26,9 +27,7 @@ const CharacterPage = ({
       <section>
         <div className="flex justify-between items-center mb-10">
           <h1 className="text-4xl ">{character?.name}</h1>
-          <button className="bg-black text-sm text-white rounded-lg px-6 py-2 border border-gray-600 transition-colors hover:bg-white hover:text-gray-600">
-            Add To favorites
-          </button>
+          <AddToFavsButton character={character!} />
         </div>
 
         <h2 className="text-xl font-bold text-gray-800">Information</h2>
