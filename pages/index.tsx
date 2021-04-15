@@ -1,5 +1,6 @@
 import CharactersList from 'components/character/CharactersList'
 import Layout from 'components/common/Layout'
+import UserCard from 'components/user/UserCard'
 import { getCharacters } from 'lib/api'
 import { InferGetStaticPropsType } from 'next'
 import { useSession } from 'next-auth/client'
@@ -18,13 +19,7 @@ export default function HomePage({
 
   return (
     <Layout>
-      <section className="flex items-center mb-10">
-        <div className="w-12 h-12 rounded-full bg-blue-500" />
-        <div className="ml-4">
-          <p className="font-bold text-gray-800">User Name</p>
-          <p className="text-sm text-gray-600">user@mail.com</p>
-        </div>
-      </section>
+      <UserCard />
 
       <section>
         <h2 className="text-gray-800 text-xl font-bold mb-2">
