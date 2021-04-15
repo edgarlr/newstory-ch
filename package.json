@@ -1,0 +1,8 @@
+{
+  "name": "newstory-ch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:edgarlr/newstory-ch.git",
+  "author": "Edgar López <edgar.lr.18@gmail.com>",
+  "license": "MIT"
+}
